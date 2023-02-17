@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Ebene_2" data-name="Ebene 2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 63.42 63.42">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+      }
+
+      .cls-2 {
+        clip-path: url(#clippath);
+      }
+
+      .cls-3, .cls-4 {
+        fill: none;
+      }
+
+      .cls-4 {
+        stroke: #a5a7aa;
+        stroke-miterlimit: 10;
+        stroke-width: 1.85px;
+      }
+
+      .cls-5 {
+        fill: #199900;
+      }
+
+      .cls-6 {
+        fill: red;
+      }
+    </style>
+    <clipPath id="clippath">
+      <circle class="cls-3" cx="31.71" cy="31.71" r="30.78" transform="translate(-4.67 57.93) rotate(-80.78)"/>
+    </clipPath>
+  </defs>
+  <g id="Italy">
+    <g>
+      <circle class="cls-4" cx="31.71" cy="31.71" r="30.78"/>
+      <g class="cls-2">
+        <g>
+          <rect class="cls-1" x=".92" y="1" width="61.57" height="61.56"/>
+          <rect class="cls-5" x=".92" y="1" width="20.52" height="61.56"/>
+          <rect class="cls-6" x="41.97" y="1" width="20.52" height="61.56"/>
+        </g>
+        <circle class="cls-3" cx="31.71" cy="31.71" r="30.78" transform="translate(-4.67 57.93) rotate(-80.78)"/>
+      </g>
+    </g>
+  </g>
+</svg>
