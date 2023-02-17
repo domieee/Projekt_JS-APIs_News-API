@@ -4,10 +4,14 @@ let n = 0;
 
 function getId() {
     n++
-    return n
+    return articleDOM
 }
 
 const urlConstructor = () => {
+
+    const apiKey = '44a6a73f818d4cd584e9f5db383a017f'
+    const url = new URL('http://newsapi.org/v2/everything')
+    const urlParams = new URLSearchParams()
 
     const keyword = () => {
         const search = document.querySelector('#keyword').value
@@ -28,9 +32,6 @@ const urlConstructor = () => {
         }
     }
 
-    const apiKey = '44a6a73f818d4cd584e9f5db383a017f'
-    const url = new URL('http://newsapi.org/v2/everything')
-    const urlParams = new URLSearchParams()
     urlParams.append('q', keyword())
     urlParams.append('language', language())
     urlParams.append('pageSize', '30')
@@ -41,14 +42,19 @@ const urlConstructor = () => {
 
 function fetchData() {
 
+    // Checks if the container contains any article
+    // In case of they get deleted
     while (container.firstChild) {
         container.removeChild(container.firstChild)
     }
 
+    // Calls the URL Constructor and returns the URL with the given parameters
     fetch(urlConstructor())
         .then(resp => resp.json())
         .then((data) => {
             data.articles.forEach(articles => {
+
+                // Saves the data we need in an object so we can handle it later
                 const article = {
                     'imgSrc': articles.urlToImage,
                     'title': articles.title,
@@ -61,11 +67,16 @@ function fetchData() {
                     }
                 }
 
+                // Constructs the article with the data we saved in the container
                 const articleDOM = {
                     'imageConstructor': () => {
-                        const articleElementImage = document.createElement('img')
-                        articleElementImage.src = article.imgSrc
-                        return articleElementImage
+                        try {
+                            const articleElementImage = document.createElement('img')
+                            articleElementImage.src = article.imgSrc
+                            return articleElementImage
+                        } catch(err) {
+                            console.log(err.message);
+                        }
                     },
 
                     'headingConstructor': () => {
@@ -94,6 +105,8 @@ function fetchData() {
                         return articleElementButton
                     },
 
+                    // Constructs the article itself and loops through each of the methods to create the different parts of the article
+                    // In the end, it appends the created elements as a child of the article container and returns the whole container
                     'containerConstructor': () => {
                         const articleContainer = document.createElement('article')
                         articleContainer.setAttribute('id', 'article_' + getId())
