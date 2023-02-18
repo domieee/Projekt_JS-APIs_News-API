@@ -1,12 +1,5 @@
 const container = document.querySelector('#grid-container')
 
-let n = 0;
-
-function getId() {
-    n++
-    return articleDOM
-}
-
 const urlConstructor = () => {
 
     const apiKey = '44a6a73f818d4cd584e9f5db383a017f'
@@ -109,7 +102,6 @@ function fetchData() {
                     // In the end, it appends the created elements as a child of the article container and returns the whole container
                     'containerConstructor': () => {
                         const articleContainer = document.createElement('article')
-                        articleContainer.setAttribute('id', 'article_' + getId())
                         articleContainer.setAttribute('class', 'article')
                         articleContainer.appendChild(articleDOM.imageConstructor())
                         articleContainer.appendChild(articleDOM.headingConstructor())
